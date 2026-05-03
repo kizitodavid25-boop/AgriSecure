@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgroSecure | SDG 2 – Zero Hunger</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+  <script src="js/js/main.js"></script>
+  <script src="js/js/counter.js"></script>
+  <script src="js/js/slider.js"></script>
+  <script src="js/js/form.js"></script>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <span class="logo-icon">🌾</span>
+      <span class="logo-text">AgroSecure</span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="pages/about.html">About</a></li>
+      <li><a href="pages/resources.html">Resources</a></li>
+      <li><a href="pages/report.html">Report Issue</a></li>
+      <li><a href="pages/contact.html">Contact</a></li>
+      <li><a href="pages/login.html" class="btn-nav">Login</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-content animate-fadeup">
+      <div class="sdg-badge"> SDG 2 — Zero Hunger</div>
+      <h1 class="hero-title">
+        Feeding Uganda's<br>Future, Together
+      </h1>
+      <p class="hero-sub">
+        A digital platform empowering smallholder farmers with real-time agricultural resources, food security data, and expert guidance to end hunger in our communities.
+      </p>
+      <div class="hero-actions">
+        <a href="pages/resources.html" class="btn-primary">Explore Resources</a>
+        <a href="pages/report.html" class="btn-outline">Report Food Crisis</a>
+      </div>
+    </div>
+    <div class="hero-visual animate-fadein">
+      <div class="hero-img-wrap">
+        <img src="images/hero-farm.jpg" alt="Ugandan farmers in field" onerror="this.src='https://images.unsplash.com/photo-1586771107445-d3ca888129ff?w=600&q=80'" />
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT STATS BAR -->
+  <section class="stats-bar">
+    <div class="stat-item">
+      <span class="big-num" data-target="690">0</span><span>M</span>
+      <p>People hungry globally</p>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="big-num" data-target="17">0</span><span>M</span>
+      <p>Ugandans food insecure</p>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="big-num" data-target="68">0</span><span>%</span>
+      <p>Population in agriculture</p>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="big-num" data-target="2030">0</span>
+      <p>SDG Target Year</p>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="section-header">
+      <h1 class="section-tag">What We Offer</h1>
+      <h2>Tools Built for Farmers</h2>
+      <p>Practical resources to increase yield, report crises, and connect communities.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card animate-card">
+        <h3>Weather & Crop Alerts</h3>
+        <p>Real-time weather data and seasonal crop recommendations for your region.</p>
+        <a href="pages/resources.html" class="feat-link">Learn more →</a>
+      </div>
+      <div class="feature-card animate-card">
+        <h3>Food Crisis Reporting</h3>
+        <p>Submit reports of food insecurity, drought, or pest outbreaks to trigger aid response.</p>
+        <a href="pages/report.html" class="feat-link">Report now →</a>
+      </div>
+      <div class="feature-card animate-card">
+        <h3>Agricultural Library</h3>
+        <p>Guides, videos, and expert tips on sustainable farming practices and soil health.</p>
+        <a href="pages/resources.html" class="feat-link">Browse library →</a>
+      </div>
+      <div class="feature-card animate-card">
+        <h3>Market Linkages</h3>
+        <p>Connect directly with buyers, cooperatives, and NGOs in your district.</p>
+        <a href="pages/contact.html" class="feat-link">Get connected →</a>
+      </div>
+      <div class="feature-card animate-card">
+        <h3>Water & Nutrition</h3>
+        <p>Irrigation planning tools and household nutrition guides for food security.</p>
+        <a href="pages/resources.html" class="feat-link">Explore →</a>
+      </div>
+      <div class="feature-card animate-card">
+        <h3>Data Dashboard</h3>
+        <p>Community food security dashboard tracking local crop yields and aid distribution.</p>
+        <a href="pages/resources.html" class="feat-link">View data →</a>
+      </div>
+    </div>
+  </section>
+
+ 
+
+  <!-- CALL TO ACTION -->
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2>Join the Movement to End Hunger</h2>
+      <p>Register as a farmer, volunteer, or partner organization today.</p>
+      <div class="cta-buttons">
+        <a href="pages/login.html" class="btn-primary">Register Now</a>
+        <a href="pages/about.html" class="btn-outline-light">Learn About SDG 2</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo-icon">🌾</span>
+        <span class="logo-text">AgroSecure</span>
+        <p>Empowering farmers, ending hunger — one community at a time.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="pages/about.html">About</a></li>
+          <li><a href="pages/resources.html">Resources</a></li>
+          <li><a href="pages/report.html">Report Issue</a></li>
+          <li><a href="pages/contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>SDG 2 Goals</h4>
+        <ul>
+          <li><a href="#">End Hunger by 2030</a></li>
+          <li><a href="#">Food Security</a></li>
+          <li><a href="#">Sustainable Agriculture</a></li>
+          <li><a href="#">Nutrition Improvement</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p> Kampala, Uganda</p>
+        <p> +256 700 000 000</p>
+        <p> info@agrosecure.ug</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 AgroSecure | Built for SDG 2 – Zero Hunger | Makerere University Business School</p>
+    </div>
+  </footer>
+
+
+
+  <script src="js/main.js"></script>
+  <script src="js/counter.js"></script>
+  <script src="js/slider.js"></script>
+</body>
+</html>

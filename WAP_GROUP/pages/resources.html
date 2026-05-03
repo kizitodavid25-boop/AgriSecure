@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resources - AgroSecure | SDG 2 Zero Hunger</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    .filter-bar { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:40px; }
+    .filter-btn {
+      padding:8px 22px; border-radius:50px;
+      border:1.5px solid rgba(45,106,79,0.25);
+      font-size:0.85rem; font-weight:600; cursor:pointer;
+      background:var(--white); color:var(--text-mid);
+      transition:var(--transition);
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background:var(--green-mid); color:var(--white); border-color:var(--green-mid);
+    }
+    .resources-grid {
+      display:grid; grid-template-columns:repeat(auto-fill, minmax(290px,1fr));
+      gap:28px; margin-bottom:80px;
+    }
+    .planting-table { width:100%; border-collapse:collapse; margin-top:20px; }
+    .planting-table th {
+      background:var(--green-dark); color:var(--white);
+      padding:12px 16px; text-align:left; font-size:0.85rem;
+    }
+    .planting-table td { padding:12px 16px; font-size:0.88rem; border-bottom:1px solid #eee; }
+    .planting-table tr:nth-child(even) td { background:#f9fdf9; }
+    .season-good { color:var(--green-mid); font-weight:600; }
+    .season-ok { color:var(--gold); font-weight:500; }
+    .season-bad { color:#e63946; font-weight:500; }
+    .tip-box {
+      background:var(--green-pale); border-left:4px solid var(--green-mid);
+      padding:20px 24px; border-radius:var(--radius-sm);
+      margin-bottom:24px;
+    }
+    .tip-box h4 { color:var(--green-dark); margin-bottom:6px; font-size:0.95rem; }
+    .tip-box p { color:var(--text-mid); font-size:0.88rem; line-height:1.6; }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <span class="logo-icon">🌾</span>
+      <span class="logo-text">AgroSecure</span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="resources.html" class="active">Resources</a></li>
+      <li><a href="report.html">Report Issue</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="login.html" class="btn-nav">Farmer Login</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+     
+    </button>
+  </nav>
+
+  <section class="page-hero">
+    <h1>Agricultural Resources</h1>
+    <p>Crop guides, planting calendars, nutrition tips, and sustainable farming practices — all in one place.</p>
+  </section>
+
+  <div class="page-content">
+
+    <!-- FILTER BAR -->
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All Resources</button>
+      <button class="filter-btn" data-filter="crop">Crop Guides</button>
+      <button class="filter-btn" data-filter="water"> Water & Irrigation</button>
+      <button class="filter-btn" data-filter="nutrition">Nutrition</button>
+      <button class="filter-btn" data-filter="pest">Pest Control</button>
+      <button class="filter-btn" data-filter="market">Market Access</button>
+    </div>
+
+    <!-- RESOURCE CARDS -->
+    <div class="resources-grid">
+      <div class="resource-item resource-card animate-card" data-category="crop" data-id="1">
+        <div class="img-zoom">
+          <img src="../images/maize.jpg" alt="Maize crop"
+               onerror="this.src='https://chitra-production.s3.eu-west-2.amazonaws.com/production/images/4d7/c92682e3-1662-47f3-ba28-6279b44c74d7/21d/208b2cd8-ba32-42b0-abc5-57f5ad05a21d/maize.jpg'" />
+        </div>
+        <div class="resource-card-body">
+          <span class="resource-tag">Crop Guide</span>
+          <h3>Maize Farming in Uganda</h3>
+          <p>Complete guide on maize varieties, planting spacing, soil preparation, fertilizer use, and harvest timing for Ugandan conditions.</p>
+        </div>
+      </div>
+      <div class="resource-item resource-card animate-card" data-category="crop" data-id="2">
+        <div class="img-zoom">
+          <img src="../images/beans.jpg" alt="Bean crops"
+               onerror="this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuH4GRvsxn5c1vqhdA7D2PAec26zNK-fX-kQ&s'" />
+        </div>
+        <div class="resource-card-body">
+          <span class="resource-tag">Crop Guide</span>
+          <h3>Beans & Legumes</h3>
+          <p>Nitrogen-fixing legumes improve soil health. Learn varieties suited for Northern, Eastern, and Western Uganda regions.</p>
+        </div>
+      </div>
+      <div class="resource-item resource-card animate-card" data-category="water" data-id="3">
+        <div class="img-zoom">
+          <img src="../images/irrigation.jpg" alt="Irrigation system"
+               onerror="this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYcbzrmgySrffUP7Y87bK4T5mQExA8QS3YUA&s'" />
+        </div>
+        <div class="resource-card-body">
+          <span class="resource-tag">Water</span>
+          <h3>Drip Irrigation Basics</h3>
+          <p>Low-cost drip irrigation can reduce water usage by 60%. This guide covers setup, maintenance, and crop suitability.</p>
+        </div>
+      </div>
+      <div class="resource-item resource-card animate-card" data-category="nutrition" data-id="4">
+        <div class="img-zoom">
+          <img src="../images/nutrition.jpg" alt="Nutritious food"
+               onerror="this.src='https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&q=75'" />
+        </div>
+        <div class="resource-card-body">
+          <span class="resource-tag">Nutrition</span>
+          <h3>Household Nutrition Guide</h3>
+          <p>Simple meal planning for food-insecure households using locally available crops to meet daily nutritional requirements.</p>
+        </div>
+      </div>
+      <div class="resource-item resource-card animate-card" data-category="pest" data-id="5">
+        <div class="img-zoom">
+          <img src="../images/pest.jpg" alt="Crop pest management"
+               onerror="this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAWKtnifM1K9uTO2YbWscatyV0jFpKfxJEGg&s'" />
+        </div>
+        <div class="resource-card-body">
+          <span class="resource-tag">Pest Control</span>
+          <h3>Fall Armyworm Management</h3>
+          <p>Identify, prevent, and treat fall armyworm infestations that devastate maize crops across Sub-Saharan Africa.</p>
+        </div>
+      </div>
+      <div class="resource-item resource-card animate-card" data-category="market" data-id="6">
+        <div class="img-zoom">
+          <img src="../images/market.jpg" alt="Farmers market"
+               onerror="this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp46IF6d7mAfzvKdgQifVT7G8SGRz2FCvqnw&s'" />
+        </div>
+        <div class="resource-card-body">
+          <span class="resource-tag">Market Access</span>
+          <h3>Connecting to Buyers</h3>
+          <p>A directory of cooperatives, NGO buyers, and fair-trade markets accepting produce from smallholder farmers in Uganda.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLANTING CALENDAR -->
+    <section style="margin-bottom:80px;">
+      <div class="section-header" style="text-align:left;margin-bottom:24px;">
+        <span class="section-tag">Seasonal Calendar</span>
+        <h2>Uganda Crop Planting Calendar</h2>
+        <p>Based on Uganda's two main cropping seasons: Season A (March–June) and Season B (September–December).</p>
+      </div>
+    </section>
+
+    <!-- FARMING TIPS -->
+    <section style="margin-bottom:80px;">
+      <div class="section-header" style="text-align:left;margin-bottom:24px;">
+        <span class="section-tag">Sustainable Practices</span>
+        <h2>Top Farming Tips for 2026</h2>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:20px;">
+        <div class="tip-box">
+          <h4>Intercropping</h4>
+          <p>Plant maize and beans together. Beans fix nitrogen in the soil, reducing fertilizer costs by up to 40% while maintaining high yields.</p>
+        </div>
+        <div class="tip-box">
+          <h4>Composting</h4>
+          <p>Convert crop residues and kitchen waste into compost. Applying 2–4 tonnes of compost per hectare improves soil organic matter significantly.</p>
+        </div>
+        <div class="tip-box">
+          <h4>Water Harvesting</h4>
+          <p>Construct simple zai pits or half-moon catchments to collect rainwater and reduce irrigation needs by up to 50% in dry seasons.</p>
+        </div>
+        <div class="tip-box">
+          <h4>Climate-Smart Varieties</h4>
+          <p>Use drought-tolerant seed varieties like NASE 19 cassava and NARO drought-tolerant maize — proven to yield well under stress conditions.</p>
+        </div>
+        <div class="tip-box">
+          <h4>Post-Harvest Storage</h4>
+          <p>Use hermetic storage bags to reduce post-harvest losses from 30–40% to less than 1%. Protect grain from weevils and moisture.</p>
+        </div>
+        <div class="tip-box">
+          <h4> Farmer Groups</h4>
+          <p>Join or form a farmer cooperative to access bulk input buying, shared machinery, collective bargaining, and group extension services.</p>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /page-content -->
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo-icon">🌾</span>
+        <span class="logo-text">AgroSecure</span>
+        <p>Empowering farmers, ending hunger — one community at a time.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="report.html">Report Issue</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>SDG 2 Goals</h4>
+        <ul>
+          <li><a href="#">End Hunger by 2030</a></li>
+          <li><a href="#">Food Security</a></li>
+          <li><a href="#">Sustainable Agriculture</a></li>
+          <li><a href="#">Nutrition Improvement</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p>Kampala, Uganda</p>
+        <p>+256 700 000 000</p>
+        <p>info@agrosecure.ug</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 AgroSecure | Built for SDG 2 – Zero Hunger | Makerere University Business School</p>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/forms.js"></script>
+
+  <script>
+  /* ── Resource Tracking ───────────────────────────────────────────────────
+     Sends a 'viewed' event to resource_tracker.php when a card is clicked.
+     Also adds a 💾 Save button to each card for logged-in users.
+     Works silently for guests (no errors shown).
+  ──────────────────────────────────────────────────────────────────────── */
+  document.addEventListener('DOMContentLoaded', () => {
+
+    function trackResource(resourceId, action) {
+      fetch('../php/resource_tracker.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `resource_id=${resourceId}&action=${action}`
+      }).catch(() => {}); // silent fail — never interrupt the user
+    }
+
+    const cards = document.querySelectorAll('.resource-item[data-id]');
+
+    cards.forEach(card => {
+      const resourceId = card.dataset.id;
+      const body = card.querySelector('.resource-card-body');
+
+      // Track 'viewed' when the card is clicked anywhere
+      card.addEventListener('click', () => {
+        trackResource(resourceId, 'viewed');
+      });
+
+      // Add a Save button to each card
+      if (body) {
+        const saveBtn = document.createElement('button');
+        saveBtn.className = 'save-resource-btn';
+        saveBtn.innerHTML = '💾 Save';
+        saveBtn.style.cssText = `
+          margin-top: 10px;
+          padding: 6px 16px;
+          background: var(--green-pale);
+          color: var(--green-dark);
+          border: 1.5px solid var(--green-mid);
+          border-radius: 50px;
+          font-size: 0.8rem;
+          font-weight: 600;
+          cursor: pointer;
+          font-family: var(--font-body);
+          transition: 0.2s;
+        `;
+        saveBtn.addEventListener('mouseover', () => {
+          saveBtn.style.background = 'var(--green-mid)';
+          saveBtn.style.color = '#fff';
+        });
+        saveBtn.addEventListener('mouseout', () => {
+          if (!saveBtn.dataset.saved) {
+            saveBtn.style.background = 'var(--green-pale)';
+            saveBtn.style.color = 'var(--green-dark)';
+          }
+        });
+        saveBtn.addEventListener('click', (e) => {
+          e.stopPropagation(); // don't trigger the card 'viewed' click
+          trackResource(resourceId, 'saved');
+          saveBtn.innerHTML = '✅ Saved!';
+          saveBtn.style.background = 'var(--green-mid)';
+          saveBtn.style.color = '#fff';
+          saveBtn.dataset.saved = '1';
+          saveBtn.disabled = true;
+        });
+        body.appendChild(saveBtn);
+      }
+    });
+  });
+  </script>
+</body>
+</html>

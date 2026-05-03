@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Report Food Crisis - AgroSecure</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    .report-wrap { display:grid; grid-template-columns:1.5fr 1fr; gap:60px; align-items:start; }
+    .report-form-card {
+      background:var(--white); border-radius:var(--radius);
+      padding:48px 40px; box-shadow:var(--shadow-md);
+      border:1px solid rgba(45,106,79,0.1);
+    }
+    .report-form-card h2 {
+      font-family:var(--font-display); font-size:1.7rem;
+      color:var(--green-dark); margin-bottom:6px;
+    }
+    .report-form-card > p { color:var(--text-mid); font-size:0.9rem; margin-bottom:28px; }
+    .info-card {
+      background:var(--green-dark); color:var(--white);
+      border-radius:var(--radius); padding:36px 32px;
+    }
+    .info-card h3 { font-family:var(--font-display); font-size:1.3rem; margin-bottom:16px; }
+    .info-step {
+      display:flex; gap:14px; align-items:flex-start;
+      margin-bottom:20px;
+    }
+    .step-num {
+      width:32px; height:32px; border-radius:50%;
+      color:white;
+      font-weight:700; font-size:0.85rem;
+      display:flex; align-items:center; justify-content:center;
+      flex-shrink:0;
+    }
+    .info-step p { font-size:0.88rem; color:rgba(255,255,255,0.8); line-height:1.5; }
+    .info-step strong { color:var(--white); display:block; margin-bottom:3px; }
+    .crisis-types { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:24px; }
+    .crisis-type {
+      background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12);
+      border-radius:var(--radius-sm); padding:12px 14px;
+      font-size:0.82rem; color:rgba(255,255,255,0.8);
+    }
+    .crisis-type strong { display:block; color:blue; font-size:0.88rem; }
+    @media(max-width:768px) {
+      .report-wrap { grid-template-columns:1fr; }
+      
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <span class="logo-icon">🌾</span>
+      <span class="logo-text">AgroSecure</span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="report.html" class="active">Report Issue</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="login.html" class="btn-nav">Farmer Login</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <section class="page-hero" style="background:linear-gradient(135deg,#7b1a1a,#b02a2a);">
+    <h1>Report a Food Crisis</h1>
+    <p>If your community is facing food insecurity, drought, flooding, pest outbreak, or supply disruption — report it here to trigger aid response.</p>
+  </section>
+
+  <div class="page-content">
+    <div class="report-wrap">
+
+      <!-- FORM -->
+      <div class="report-form-card animate-fadeup">
+        <h2>Submit Crisis Report</h2>
+        <p>All reports are reviewed within 12 hours by our crisis coordination team.</p>
+
+        <form id="reportForm" action="../php/report_handler.php" method="POST">
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="rep_name">Your Full Name</label>
+              <input type="text" id="rep_name" name="reporter_name" required placeholder="e.g. Nakato Rose" />
+              <span class="form-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="rep_phone">Phone Number</label>
+              <input type="tel" id="rep_phone" name="reporter_phone" required placeholder="+256 7XX XXX XXX" />
+              <span class="form-error"></span>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="rep_district">District</label>
+              <select id="rep_district" name="district" required>
+                <option value="">Select District</option>
+                <option>Kampala</option><option>Wakiso</option><option>Mukono</option>
+                <option>Jinja</option><option>Mbale</option><option>Gulu</option>
+                <option>Lira</option><option>Arua</option><option>Mbarara</option>
+                <option>Kabale</option><option>Fort Portal</option><option>Masaka</option>
+                <option>Soroti</option><option>Moroto</option><option>Kitgum</option>
+                <option>Other</option>
+              </select>
+              <span class="form-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="rep_village">Village / Sub-County</label>
+              <input type="text" id="rep_village" name="village" placeholder="e.g. Bweyogerere" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Crisis Type</label>
+            <select id="rep_type" name="crisis_type" required>
+              <option value=""> Select Crisis Type</option>
+              <option>Drought / Dry Spell</option>
+              <option>Flooding / Waterlogging</option>
+              <option>Pest Outbreak (e.g. Armyworm)</option>
+              <option>Plant Disease</option>
+              <option>Food Supply Shortage</option>
+              <option>Livestock Disease</option>
+              <option>Post-Harvest Loss</option>
+              <option>Market Price Spike</option>
+              <option>Other</option>
+            </select>
+            <span class="form-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label>Severity Level </label>
+            <div class="severity-options" style="margin-top:8px;">
+              <button type="button" class="severity-btn" data-level="low">Low</button>
+              <button type="button" class="severity-btn" data-level="medium">Moderate</button>
+              <button type="button" class="severity-btn" data-level="high">Severe / Emergency</button>
+            </div>
+            <input type="hidden" id="severityValue" name="severity" />
+            <span class="form-error" id="severityError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="rep_households">Estimated Households Affected</label>
+            <input type="number" id="rep_households" name="households_affected" min="1" placeholder="e.g. 150" />
+          </div>
+
+          <div class="form-group">
+            <label for="rep_description">Describe the Situation</label>
+            <textarea id="rep_description" name="description" required
+              placeholder="Describe what is happening, how long it has been going on, what resources are needed…"></textarea>
+            <span class="form-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="rep_email">Email (optional — for follow-up)</label>
+            <input type="email" id="rep_email" name="email" placeholder="your@email.com" />
+            <span class="form-error"></span>
+          </div>
+
+          <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">
+             Submit Crisis Report
+          </button>
+          <div class="form-success"></div>
+
+        </form>
+      </div>
+
+      <!-- INFO PANEL -->
+      <div>
+        <div class="info-card">
+          <h3>What Happens Next?</h3>
+          <div class="info-step">
+            <div class="step-num">1</div>
+            <p><strong>Report Received</strong>Submitted to our crisis coordination dashboard within seconds.</p>
+          </div>
+          <div class="info-step">
+            <div class="step-num">2</div>
+            <p><strong>Verification</strong>A local field coordinator contacts you within 12 hours to verify details.</p>
+          </div>
+          <div class="info-step">
+            <div class="step-num">3</div>
+            <p><strong>Alert Issued</strong>An alert is sent to NGO partners, government agencies, and aid organizations.</p>
+          </div>
+          <div class="info-step">
+            <div class="step-num">4</div>
+            <p><strong>Aid Dispatched</strong>Emergency seeds, food, or technical support is mobilized within 2–5 days.</p>
+          </div>
+        </div>
+
+        <div style="margin-top:28px;">
+          <h4 style="font-family:var(--font-display);color:var(--green-dark);margin-bottom:16px;">Crisis Types We Track</h4>
+          <div class="crisis-types">
+            <div class="crisis-type"><strong>Drought</strong>Prolonged dry spells</div>
+            <div class="crisis-type"><strong>Flooding</strong>Waterlogged cropland</div>
+            <div class="crisis-type"><strong>Pest Outbreak</strong>Armyworm, locust</div>
+            <div class="crisis-type"><strong>Plant Disease</strong>Blight, wilt, rust</div>
+            <div class="crisis-type"><strong>Food Shortage</strong>Supply disruptions</div>
+            <div class="crisis-type"><strong> Price Spike</strong>Market inflation</div>
+          </div>
+        </div>
+
+        <div style="background:var(--green-pale);border-radius:var(--radius-sm);padding:20px 22px;margin-top:24px;">
+          <strong style="color:var(--green-dark);">Emergency Hotline</strong>
+          <p style="font-size:0.88rem;color:var(--text-mid);margin-top:4px;">For life-threatening emergencies call:</p>
+          <p style="font-size:1.3rem;font-weight:700;color:var(--green-dark);margin-top:6px;">📞 0800 100 066</p>
+          <p style="font-size:0.78rem;color:var(--text-light);">Office of the Prime Minister – OPM Disaster Risk</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo-icon">🌾</span>
+        <span class="logo-text">AgroSecure</span>
+        <p>Empowering farmers, ending hunger — one community at a time.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="report.html">Report Issue</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links"><h4>SDG 2 Goals</h4><ul>
+        <li><a href="#">End Hunger by 2030</a></li>
+        <li><a href="#">Food Security</a></li>
+        <li><a href="#">Sustainable Agriculture</a></li>
+      </ul></div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p>Kampala, Uganda</p>
+        <p>+256 700 000 000</p>
+        <p>info@agrosecure.ug</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 AgroSecure | Built for SDG 2 – Zero Hunger | Makerere University Business School</p>
+    </div>
+  </footer>
+
+
+  <script src="../js/main.js"></script>
+  <script src="../js/forms.js"></script>
+  <script>
+  //And to display the success or error message when the user is redirected back to the page, add this script at the very bottom
+  const urlParams = new URLSearchParams(window.location.search);
+  const status = urlParams.get('status');
+  const message = urlParams.get('message');
+
+  if (status && message) {
+    const msgDiv = document.createElement('div');
+    msgDiv.style.padding = "12px";
+    msgDiv.style.marginBottom = "20px";
+    msgDiv.style.borderRadius = "4px";
+    msgDiv.style.textAlign = "center";
+    msgDiv.style.fontSize = "0.95rem";
+    msgDiv.style.fontWeight = "bold";
+
+    if (status === 'success') {
+      msgDiv.style.backgroundColor = "#e6f4ea";
+      msgDiv.style.color = "#137333";
+    } else {
+      msgDiv.style.backgroundColor = "#fce8e6";
+      msgDiv.style.color = "#c5221f";
+    }
+
+    msgDiv.textContent = decodeURIComponent(message);
+
+    // Insert the message at the top of your report form section
+    const reportForm = document.getElementById('reportForm');
+    reportForm.parentNode.insertBefore(msgDiv, reportForm);
+  }
+  </script>
+</body>
+</html>

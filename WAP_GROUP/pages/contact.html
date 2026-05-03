@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - AgroSecure | SDG 2 Zero Hunger</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    .contact-form-card {
+      background:var(--white); border-radius:var(--radius);
+      padding:48px 40px; box-shadow:var(--shadow-md);
+      border:1px solid rgba(45,106,79,0.1);
+    }
+    .contact-form-card h2 { font-family:var(--font-display); font-size:1.7rem; color:var(--green-dark); margin-bottom:6px; }
+    .contact-form-card > p { color:var(--text-mid); font-size:0.9rem; margin-bottom:28px; }
+    .map-embed {
+      margin-top:28px; border-radius:var(--radius); overflow:hidden;
+      box-shadow:var(--shadow-sm);
+    }
+
+
+    @media(max-width:768px) {
+      .contact-form-card { padding:28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <span class="logo-icon">🌾</span>
+      <span class="logo-text">AgroSecure</span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="report.html">Report Issue</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+      <li><a href="login.html" class="btn-nav">Farmer Login</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <section class="page-hero">
+    <h1>Get in Touch</h1>
+    <p>Questions, partnerships, or media inquiries — we'd love to hear from you.</p>
+  </section>
+
+  <div class="page-content">
+    <div class="contact-grid">
+
+      <!-- FORM -->
+      <div class="contact-form-card animate-fadeup">
+        <h2>Send Us a Message</h2>
+        <p>Fill out the form below and our team will respond within 24 hours.</p>
+
+        <form id="contactForm" action="../php/contact_handler.php" method="POST">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="c_first">First Name </label>
+              <input type="text" id="c_first" name="first_name" required placeholder="e.g. Amumpaire" />
+              <span class="form-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="c_last">Last Name </label>
+              <input type="text" id="c_last" name="last_name" required placeholder="e.g. Grace" />
+              <span class="form-error"></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="c_email">Email Address </label>
+            <input type="email" id="c_email" name="email" required placeholder="grace@example.com" />
+            <span class="form-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="c_phone">Phone Number</label>
+            <input type="tel" id="c_phone" name="phone" placeholder="+256 7XX XXX XXX" />
+            <span class="form-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="c_subject">Subject </label>
+            <select id="c_subject" name="subject" required>
+              <option value="">-- Select a Topic --</option>
+              <option>General Inquiry</option>
+              <option>Partnership Opportunity</option>
+              <option>Farmer Registration Help</option>
+              <option>Technical Support</option>
+              <option>Donate / Sponsor</option>
+              <option>Media / Press</option>
+              <option>Other</option>
+            </select>
+            <span class="form-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="c_message">Message </label>
+            <textarea id="c_message" name="message" required placeholder="Tell us how we can help or how you'd like to partner with AgroSecure…"></textarea>
+            <span class="form-error"></span>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">
+             Send Message
+          </button>
+          <div class="form-success"></div>
+        </form>
+      </div>
+
+      <!-- CONTACT INFO -->
+      <div>
+        <h3 style="font-family:var(--font-display);color:var(--green-dark);font-size:1.4rem;margin-bottom:28px;">Contact Information</h3>
+
+        <div class="contact-info-item">
+         
+          <div>
+            <h4>Office Address</h4>
+            <p>Plot 31 Nakawa-Jinja Road<br>Kampala, Uganda</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+         
+          <div>
+            <h4>Phone</h4>
+            <p>+256 700 000 000<br>Mon-Fri, 8am-5pm EAT</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+         
+          <div>
+            <h4>Email</h4>
+            <p>info@agrosecure.ug<br>support@agrosecure.ug</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+         
+          <div>
+            <h4>WhatsApp</h4>
+            <p>+256 700 000 001<br>Available 24/7 for emergencies</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- NEWSLETTER -->
+    <section style="background:var(--green-dark);border-radius:var(--radius);padding:56px 48px;text-align:center;margin-top:80px;margin-bottom:20px;">
+      <h2 style="font-family:var(--font-display);color:var(--white);font-size:1.8rem;margin-bottom:10px;">Stay Updated</h2>
+      <p style="color:rgba(255,255,255,0.75);margin-bottom:28px;font-size:0.95rem;">Get monthly crop alerts, food security updates, and farming tips delivered to your inbox.</p>
+      <form id="newsletterForm" novalidate style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;max-width:500px;margin:0 auto;">
+        <div class="form-group" style="flex:1;min-width:220px;margin-bottom:0;">
+          <input type="email" name="email" required placeholder="Enter your email address"
+                 style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.3);color:var(--white);" />
+          <span class="form-error"></span>
+        </div>
+        <button type="submit" class="btn-primary" style="background:var(--gold);color:var(--green-dark);flex-shrink:0;">
+          Subscribe
+        </button>
+        <div class="form-success" style="width:100%;"></div>
+      </form>
+    </section>
+
+  </div><!-- /page-content -->
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo-icon">🌾</span>
+        <span class="logo-text">AgroSecure</span>
+        <p>Empowering farmers, ending hunger — one community at a time.</p>
+      </div>
+      <div class="footer-links"><h4>Quick Links</h4><ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="report.html">Report Issue</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul></div>
+      <div class="footer-links"><h4>SDG 2 Goals</h4><ul>
+        <li><a href="#">End Hunger by 2030</a></li>
+        <li><a href="#">Food Security</a></li>
+        <li><a href="#">Sustainable Agriculture</a></li>
+      </ul></div>
+      <div class="footer-contact"><h4>Contact</h4>
+        <p> Kampala, Uganda</p>
+        <p>+256 700 000 000</p>
+        <p>info@agrosecure.ug</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 AgroSecure | Built for SDG 2 - Zero Hunger | Makerere University Business School</p>
+    </div>
+  </footer>
+
+ 
+  <script src="../js/main.js"></script>
+  <script src="../js/forms.js"></script>
+
+  <script>
+      /*The JavaScript snippet is a "reader". Its only job is to look at the browser's address bar when the page loads, extract the message from the URL, and display it as a neat notification on the screen.Without this script, the user will still be redirected successfully, but they won't see a confirmation message on the screen!*/
+  const urlParams = new URLSearchParams(window.location.search);
+  const status = urlParams.get('status');
+  const message = urlParams.get('message');
+
+  if (status && message) {
+    const msgDiv = document.createElement('div');
+    msgDiv.style.padding = "12px";
+    msgDiv.style.marginBottom = "20px";
+    msgDiv.style.borderRadius = "4px";
+    msgDiv.style.textAlign = "center";
+    msgDiv.style.fontSize = "0.95rem";
+    msgDiv.style.fontWeight = "bold";
+
+    if (status === 'success') {
+      msgDiv.style.backgroundColor = "#e6f4ea";
+      msgDiv.style.color = "#137333";
+    } else {
+      msgDiv.style.backgroundColor = "#fce8e6";
+      msgDiv.style.color = "#c5221f";
+    }
+
+    msgDiv.textContent = decodeURIComponent(message);
+
+    // Insert the message at the top of your contact form section
+    const contactForm = document.getElementById('contactForm');
+    contactForm.parentNode.insertBefore(msgDiv, contactForm);
+  }
+  </script>
+</body>
+</html>

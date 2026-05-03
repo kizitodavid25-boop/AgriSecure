@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login / Register - AgroSecure</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    .pass-wrap { position:relative; }
+    .toggle-password {
+      position:absolute; right:14px; top:50%;
+      transform:translateY(-50%);
+      background:none; border:none; cursor:pointer;
+      font-size:1rem; padding:0;
+    }
+    .auth-panel { display:none; }
+    #loginPanel { display:block; }
+    .divider { text-align:center; position:relative; margin:20px 0; }
+    .divider::before {
+      content:''; position:absolute; top:50%; left:0; right:0;
+      height:1px; background:#eee;
+    }
+    .divider span {
+      position:relative; background:var(--white);
+      padding:0 14px; color:var(--text-light); font-size:0.82rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <span class="logo-icon">🌾</span>
+      <span class="logo-text">AgroSecure</span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="report.html">Report Issue</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="auth-wrap">
+    <div class="auth-card animate-fadeup">
+
+      <div class="auth-logo">
+        <span style="font-size:2.5rem;">🌾</span>
+        <div style="font-family:var(--font-display);font-size:1.4rem;font-weight:900;color:var(--green-dark);">AgroSecure</div>
+      </div>
+
+      <!-- TABS -->
+      <div class="auth-tabs">
+        <div class="auth-tab active" data-tab="loginPanel">Login</div>
+        <div class="auth-tab" data-tab="registerPanel">Register</div>
+      </div>
+
+      <!-- LOGIN PANEL -->
+      <div class="auth-panel" id="loginPanel">
+        <h2>Welcome Back</h2>
+        <p class="sub">Sign in to access your farmer dashboard</p>
+        <form id="loginForm" action="../php/connect_handler.php" method="POST">
+          <div class="form-group">
+            <label for="l_email">Email or Phone </label>
+            <input type="email" id="l_email" name="email" required placeholder="your@email.com" />
+            <span class="form-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="l_pass">Password </label>
+            <div class="pass-wrap">
+              <input type="password" id="l_pass" name="password" required placeholder="••••••••" style="padding-right:44px;" />
+              <button type="button" class="toggle-password" data-target="l_pass">unhide</button>
+            </div>
+            <span class="form-error"></span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
+            <label style="display:flex;align-items:center;gap:8px;font-size:0.85rem;cursor:pointer;">
+              <input type="checkbox" name="remember" /> Remember me
+            </label>
+            <a href="#" style="font-size:0.85rem;color:var(--green-mid);">Forgot password?</a>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">Sign In</button>
+          <div class="form-success"></div>
+        </form>
+        <div class="divider"><span>or</span></div>
+        <div class="auth-switch">
+          Don't have an account?
+          <a href="#" onclick="switchToRegister(event)">Register here</a>
+        </div>
+      </div>
+
+      <!-- REGISTER PANEL -->
+      <div class="auth-panel" id="registerPanel">
+        <h2>Create Account</h2>
+        <p class="sub">Join thousands of farmers on AgroSecure</p>
+        <form id="registerForm" action="../php/register_handler.php" method="POST">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="r_first">First Name </label>
+              <input type="text" id="r_first" name="first_name" required placeholder="e.g. Okello" />
+              <span class="form-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="r_last">Last Name </label>
+              <input type="text" id="r_last" name="last_name" required placeholder="e.g. James" />
+              <span class="form-error"></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="r_email">Email Address </label>
+            <input type="email" id="r_email" name="email" required placeholder="okello@example.com" />
+            <span class="form-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="r_phone">Phone Number </label>
+            <input type="tel" id="r_phone" name="phone" required placeholder="+256 7XX XXX XXX" />
+            <span class="form-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="r_district">District </label>
+            <select id="r_district" name="district" required>
+              <option value="">-- Select District --</option>
+              <option>Kampala</option><option>Wakiso</option><option>Mukono</option>
+              <option>Jinja</option><option>Mbale</option><option>Gulu</option>
+              <option>Lira</option><option>Arua</option><option>Mbarara</option>
+              <option>Kabale</option><option>Fort Portal</option><option>Masaka</option>
+              <option>Soroti</option><option>Other</option>
+            </select>
+            <span class="form-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="r_role">I am a </label>
+            <select id="r_role" name="role" required>
+              <option value="">-- Select Role --</option>
+              <option>Smallholder Farmer</option>
+              <option>Commercial Farmer</option>
+              <option>Agricultural Extension Worker</option>
+              <option>NGO / Aid Organization</option>
+              <option>Researcher / Student</option>
+              <option>Buyer / Trader</option>
+              <option>Other</option>
+            </select>
+            <span class="form-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="r_pass">Password </label>
+            <div class="pass-wrap">
+              <input type="password" id="r_pass" name="password" required placeholder="At least 8 characters"
+                     minlength="8" style="padding-right:44px;" />
+              <button type="button" class="toggle-password" data-target="r_pass">unhide</button>
+            </div>
+            <span class="form-error"></span>
+          </div>
+          <div class="form-group">
+            <label style="display:flex;gap:10px;align-items:flex-start;font-size:0.85rem;">
+              <input type="checkbox" name="agree" required style="margin-top:3px;width:auto;" />
+              I agree to the <a href="#" style="color:var(--green-mid);">Terms of Service</a> and
+              <a href="#" style="color:var(--green-mid);">Privacy Policy</a>
+            </label>
+            <span class="form-error"></span>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">Create Account</button>
+          <div class="form-success"></div>
+        </form>
+        <div class="auth-switch" style="margin-top:16px;">
+          Already have an account?
+          <a href="#" onclick="switchToLogin(event)">Sign in here</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/forms.js"></script>
+  <script>
+    function switchToRegister(e) {
+      e.preventDefault();
+      document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('[data-tab="registerPanel"]')[0].classList.add('active');
+      document.getElementById('loginPanel').style.display = 'none';
+      document.getElementById('registerPanel').style.display = 'block';
+    }
+    function switchToLogin(e) {
+      e.preventDefault();
+      document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('[data-tab="loginPanel"]')[0].classList.add('active');
+      document.getElementById('registerPanel').style.display = 'none';
+      document.getElementById('loginPanel').style.display = 'block';
+    }
+         // ── URL Status Notification Handler ────────────────────────────────────────
+   function showNotification(message, type) {
+     // Remove any existing notification
+      const existing = document.getElementById('auth-notification');
+       if (existing) existing.remove();
+
+        const note = document.createElement('div');
+      note.id = 'auth-notification';
+     note.style.cssText = `
+    position: fixed;
+    top: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 14px 24px;
+    border-radius: 10px;
+    font-size: 0.92rem;
+    font-weight: 500;
+    z-index: 9999;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    max-width: 420px;
+    width: 90%;
+    text-align: center;
+    animation: slideDown 0.3s ease;
+    background: ${type === 'success' ? '#d1fae5' : '#fee2e2'};
+    color:       ${type === 'success' ? '#065f46' : '#991b1b'};
+    border:      1px solid ${type === 'success' ? '#6ee7b7' : '#fca5a5'};
+   `;
+    note.textContent = message;
+
+    // Add slide-down animation
+   const style = document.createElement('style');
+   style.textContent = `@keyframes slideDown {
+    from { opacity:0; transform: translateX(-50%) translateY(-12px); }
+    to   { opacity:1; transform: translateX(-50%) translateY(0); }
+   }`;
+   document.head.appendChild(style);
+   document.body.appendChild(note);
+
+    // Auto-dismiss after 5 seconds
+    setTimeout(() => {
+    note.style.transition = 'opacity 0.4s';
+    note.style.opacity = '0';
+    setTimeout(() => note.remove(), 400);
+    }, 5000);
+  }
+
+   function handleURLStatus() {
+    const params = new URLSearchParams(window.location.search);
+    const status  = params.get('status');
+    const message = params.get('message');
+
+      if (!status || !message) return;
+
+    // If registration was successful, also switch to the Login tab so
+    // the user can sign in immediately
+    if (status === 'success') {
+      switchToLogin({ preventDefault: () => {} });
+    }
+
+    showNotification(message, status === 'success' ? 'success' : 'error');
+
+    // Clean the URL so refreshing doesn't re-show the notification
+    const cleanURL = window.location.pathname;
+    window.history.replaceState({}, document.title, cleanURL);
+   }
+
+   // Run on page load
+    document.addEventListener('DOMContentLoaded', handleURLStatus);
+  </script>
+</body>
+</html>
